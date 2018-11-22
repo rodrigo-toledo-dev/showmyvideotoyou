@@ -1,0 +1,8 @@
+.pagination {
+    a{ color: white; background: #6CC3D5; border-radius: 5px; padding: 5px }
+    .previous_page { background:#78C2AD; color:white; border-radius: 5px; padding: 5px }
+    .previous_page.disabled { background: white; color: #777; border-radius: 5px; padding: 5px }
+    .current { color: white; background: #78C2AD; border-radius: 5px; padding: 5px }
+    .next_page { background: #78C2AD; color: white; border-radius: 5px; padding: 5px }
+    .next_page.disabled { background: white; color: #777; border-radius: 5px; padding: 5px }
+}

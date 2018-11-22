@@ -1,0 +1,11 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin'}) do |f| %>
+  <% unless alert.blank? %>
+		<div class="alert alert-danger mb-3"><%= alert %></div>
+	<% end %>
+  <h5 class="mb-3 font-weight-normal">Entre com suas credenciais</h5>
+  <div>
+    <%= f.text_field :email, autofocus: true, class: 'form-control', placeholder: 'Entre com seu email', required: true %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Entre com sua senha', required: true %>
+    <%= f.submit "Acessar", class: 'btn btn-lg btn-primary btn-block mt-3' %>
+  </div>
+<% end %>

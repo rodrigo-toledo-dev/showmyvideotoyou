@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%=t(:application_name)%></title>
+  <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'devise', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+  <div class="container text-center">
+    <h3><%=t(:application_name)%></h3>
+    <%= yield %>
+    <p class="mb-3 text-muted">Construído por
+      <a href="http://netshow.me/" target="_blank">netshow.me</a>
+    </p>
+  </div>
+</body>
+
+</html>

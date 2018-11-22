@@ -15,8 +15,5 @@
  *= require bootswatch
  *= require bootstrap.min
  *= require custom.min
- *= require will_paginate
+ *= require signin
  */
- .bg-primary {
-  background-color: #799ace !important;
-}
