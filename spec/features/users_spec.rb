@@ -6,6 +6,7 @@ require 'rails_helper'
 RSpec.describe 'Users features' do
   before(:all) do
     @user = create(:user)
+    @user_example = build(:user)
     create_list(:user, 10)
     @success_message = 'Operação efetuada com sucesso.'
   end
@@ -36,7 +37,7 @@ RSpec.describe 'Users features' do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Acessar'
-    click_link 'Criar Usuário'
+    click_link 'Criar Usuário', match: :first
 
     fill_in 'user_name', with: @user_example.name
     fill_in 'user_email', with: @user_example.email
@@ -52,11 +53,10 @@ RSpec.describe 'Users features' do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Acessar'
-    click_link 'Criar Usuário'
+    click_link 'Criar Usuário', match: :first
 
     fill_in 'user_name', with: @user_example.name
     fill_in 'user_email', with: @user_example.email
-    select 'Operador', from: 'user[kind_of]'
     fill_in 'user_password', with: @user_example.password
     fill_in 'user_password_confirmation', with: @user_example.password
     click_button 'Salvar'
@@ -69,7 +69,7 @@ RSpec.describe 'Users features' do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Acessar'
-    click_link 'Criar Usuário'
+    click_link 'Criar Usuário', match: :first
 
     click_button 'Salvar'
     expect(page).to have_content('E-mail não pode ficar em branco')
@@ -82,7 +82,7 @@ RSpec.describe 'Users features' do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Acessar'
-    click_link 'Criar Usuário'
+    click_link 'Criar Usuário', match: :first
 
     click_button 'Salvar'
     expect(page).to have_content('E-mail não pode ficar em branco')
@@ -95,7 +95,7 @@ RSpec.describe 'Users features' do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Acessar'
-    click_link 'Criar Usuário'
+    click_link 'Criar Usuário', match: :first
 
     fill_in 'user_name', with: @user_example.name
     fill_in 'user_email', with: @user_example.email
@@ -112,7 +112,7 @@ RSpec.describe 'Users features' do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Acessar'
-    click_link 'Criar Usuário'
+    click_link 'Criar Usuário', match: :first
 
     fill_in 'user_name', with: @user_example.name
     fill_in 'user_email', with: @user.email

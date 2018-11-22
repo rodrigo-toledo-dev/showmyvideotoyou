@@ -12,20 +12,13 @@
   <% end %>
 
   <div class="form-row">
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-6">
       <%= form.label :name %>
       <%= form.text_field :name, class: 'form-control' %>
     </div>
-  </div>
-
-  <div class="form-row">
     <div class="form-group col-md-6">
       <%= form.label :email %>
       <%= form.text_field :email, class: 'form-control' %>
-    </div>
-    <div class="form-group col-md-6">
-      <%= form.label :kind_of %>
-      <%= form.select :kind_of, User.kind_ofs.keys.map { |k| [k.humanize, k] }, {}, { class: 'form-control' } %>
     </div>
   </div>
 
