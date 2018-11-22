@@ -1,0 +1,14 @@
+<table id="users-datatable" data-source="<%= users_path(format: :json) %>" class="table mt-3 mb-3">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Tipo</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<%= link_to 'Criar Usuário', new_user_path, class: 'btn btn-sm btn-info mt-3' %>

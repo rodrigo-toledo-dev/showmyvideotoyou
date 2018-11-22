@@ -1,0 +1,49 @@
+<%= form_with(model: @user, url: (@user.new_record? ? users_path : user_path(@user)), local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <h5><%= t('errors_on_save') %></h5>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :kind_of %>
+      <%= form.select :kind_of, User.kind_ofs.keys.map { |k| [k.humanize, k] }, {}, { class: 'form-control' } %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :password %>
+      <%= form.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions mt-3">
+    <div class="btn-group" role="group" aria-label="Ações">
+      <%= form.submit 'Salvar', class: 'btn btn-sm btn-primary' %>
+      <%= link_to 'Voltar para Lista', users_path, class: 'btn btn-sm btn-info' %>
+    </div>
+  </div>
+<% end %>

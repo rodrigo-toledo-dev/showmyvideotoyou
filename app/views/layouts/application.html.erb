@@ -1,15 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Showmyvideo</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<head>
+  <title><%=t(:application_name)%></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <strong><%= link_to t(:application_name), root_path, class: 'nav-link' %></strong>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Vídeos
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="themes">
+              <%= link_to 'Lista de Vídeos', videos_path, class: 'dropdown-item' %>
+              <%= link_to 'Criar Vídeo', new_video_path, class: 'dropdown-item' %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Controle de Acessos
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="themes">
+              <%= link_to 'Lista de Usuários', users_path, class: 'dropdown-item' %>
+              <%= link_to 'Criar Usuário', new_user_path, class: 'dropdown-item' %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <% unless notice.blank? %>
+    <div class="alert alert-info mb-3">
+      <%= notice %>
+    </div>
+    <% end %>
     <%= yield %>
-  </body>
+    <p class="mb-3 text-muted text-center">Construído por
+      <a href="http://netshow.me/" target="_blank">netshow.me</a>
+    </p>
+  </div>
+</body>
+
 </html>

@@ -75,6 +75,18 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+
+
+  config.include FactoryBot::Syntax::Methods
+  config.include Warden::Test::Helpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Capybara::DSL
+  # config.include WaitUntil, type: :feature
+
+  config.after do
+    Warden.test_reset!
+  end
 end
 
 Shoulda::Matchers.configure do |config|
